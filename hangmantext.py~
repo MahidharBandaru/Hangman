@@ -1,0 +1,53 @@
+import random
+print "******HANGMAN******"
+print "***YOU HAVE SIX TRIES***"
+listofwords=["proximity","uncopyrightable","improvise","essential","organisms"]
+num=random.randint(0,len(listofwords)-1)
+secret=listofwords[num]
+secret=list(secret)
+new=[]
+word=[]
+check=[]
+for i in secret:
+	if i not in check:
+		check.append(i)
+tries=6
+while(1):
+	for i in secret:
+		if i in word:
+			print i,
+		else:
+			print "_",
+	print "\nEnter the right word or character"
+	let=raw_input().lower()
+	if(len(let)>1 and list(let)!=secret):
+		print "******GAME OVER******"
+		print "***TRY AGAIN***"	
+		break
+	elif(len(let)>1 and list(let)==secret):
+		print "******YOU WON******"
+		break
+	elif(len(let)==1):
+		if let in new:
+			print "***LETTER ENTERED ALREADY***"
+		else:
+			new.append(let)
+			if let in secret:
+				word.append(let)
+				if(sorted(word)==sorted(check)):
+					print "***You won***"
+					print "The word is " +("".join(secret))
+					break
+			else:
+				tries-=1
+				print "***TRIES LEFT= "+str(tries)+"***"
+	if(tries==0):
+		break
+if(tries==0):
+	print "***GAME OVER***"
+	print "The word is " +("".join(secret))
+	print "***TRY AGAIN***"
+
+
+	
+	

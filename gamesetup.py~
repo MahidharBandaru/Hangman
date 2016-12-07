@@ -1,0 +1,26 @@
+from Tkinter import *
+from att4 import startgame
+from att4 import word_generator
+from att4 import tries_generator
+def gamesetup():
+	setup=Toplevel()
+	setup.title="GAME SETUP"
+	word_var=IntVar()
+	word_var.set(1)
+	diff_var=IntVar()
+	diff_var.set(5)
+	rb1=Radiobutton(setup,text="GENERAL ENGLISH",value=1,variable=word_var).grid(row=0,sticky=W)
+	rb2=Radiobutton(setup,text="ANIMALS",value=2,variable=word_var).grid(row=1,sticky=W)
+	rb3=Radiobutton(setup,text="COUNTRIES",value=3,variable=word_var).grid(row=2,sticky=W)
+	rb4=Radiobutton(setup,text="STREAMS OF STUDY",value=4,variable=word_var).grid(row=3,sticky=W)
+	rb5=Radiobutton(setup,text="EASY",value=5,variable=diff_var).grid(row=0,column=1,sticky=W)
+	rb6=Radiobutton(setup,text="MEDIUM",value=6,variable=diff_var).grid(row=1,column=1,sticky=W)
+	rb7=Radiobutton(setup,text="HARD",value=7,variable=diff_var).grid(row=2,column=1,sticky=W)
+	rb8=Radiobutton(setup,text="ENTER WORD",value=8,variable=word_var).grid(row=4,sticky=W)
+	playbutton=Button(setup,text="START")
+	if(word_var.get()!=8):
+		playbutton.configure(command=lambda:startgame(word_generator(word_var.get(),tries_generator(diff_var.get()),setup),tries_generator(diff_var.get()),setup))
+	else:
+		playbutton.configure(command=lambda:word_generator(word_var.get(),tries_generator(diff_var.get()),setup))
+	playbutton.grid(row=5,columnspan=2)
+	setup.mainloop()

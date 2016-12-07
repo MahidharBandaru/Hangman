@@ -6,5 +6,4 @@ For running the game run the file main.py
 
 CREDITS:
 BANDARU MAHIDHAR- IMT2016070
-SWAPNIL BUCHKE- IMT2016085
-PAVAN KUMAR REDDY POTHULA- IMT2016127
+Internation Institute of Information Technology, Bangalore
